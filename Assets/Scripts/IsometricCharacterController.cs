@@ -18,25 +18,34 @@ public class IsometricCharacterController : MonoBehaviour {
 
     Vector3 isoForward;
 
+    float timeCounter;
+
+    Vector3 origin;
+
     void Start() {
         rb = controlling.GetComponent<Rigidbody>();
 
         isoForward = Camera.main.transform.forward;
         isoForward.y = 0;
         isoForward = isoForward.normalized;
+
+        timeCounter = 0;
+        origin = Vector3.zero;
     }
 
     void Update() {
-        if (controlling == player)
+        if (controlling == player) {
             MovePlayer(moveSpeed);
+        }
         else {
             Telepathy(moveSpeed);
+            timeCounter += Time.deltaTime;
 
             if (Vector3.Distance(controlling.transform.position, player.transform.position) > controlDistance) {
-                //rb.isKinematic = true;
+                timeCounter = 0;
                 controlling = player;
                 rb = controlling.GetComponent<Rigidbody>();
-                //rb.isKinematic = false;
+                origin = Vector3.zero;
             }
         }
 
@@ -45,12 +54,19 @@ public class IsometricCharacterController : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Controllable"))) {
                 if (Vector3.Distance(hit.transform.position, player.transform.position) <= controlDistance) {
-                    //rb.isKinematic = true;
+                    timeCounter = 0;
                     controlling = hit.collider.gameObject;
                     rb = controlling.GetComponent<Rigidbody>();
-                    //rb.isKinematic = false;
+                    origin = controlling.transform.position;
                 }
             }
+        }
+        
+        if (Input.GetMouseButtonDown(1)) {
+            timeCounter = 0;
+            controlling = player;
+            rb = controlling.GetComponent<Rigidbody>();
+            origin = Vector3.zero;
         }
     }
 
@@ -61,7 +77,8 @@ public class IsometricCharacterController : MonoBehaviour {
         rb.velocity = moveVector;
 
         Vector3 pos = controlling.transform.position;
-        pos.y = Mathf.Lerp(pos.y, Mathf.Sin(Time.time * 3) / 10 + 1, 0.125f);
+        float difference = Mathf.Sin(timeCounter * 3) / 5 + 1;
+        pos.y = Mathf.Lerp(pos.y, origin.y + difference, 0.125f);
         controlling.transform.position = pos;
 
         pos.y = player.transform.position.y;
