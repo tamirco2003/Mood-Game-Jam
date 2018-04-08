@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class ButtonController : MonoBehaviour {
 
-    public Collider activator;
-
     [System.Serializable]
     public class ButtonEvent : UnityEvent { }
 
@@ -20,14 +18,14 @@ public class ButtonController : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other == activator) {
+        if (other.tag == tag) {
             animator.SetBool("Activated", true);
             OnActivate.Invoke();
         }
     }
 
     void OnTriggerExit(Collider other) {
-        if (other == activator) {
+        if (other.tag == tag)  {
             animator.SetBool("Activated", false);
             OnDeactivate.Invoke();
         }

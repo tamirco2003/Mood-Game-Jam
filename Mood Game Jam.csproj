@@ -338,6 +338,7 @@
     <Compile Include="Assets\Scripts\IsometricCharacterController.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
+    <Compile Include="Assets\Scripts\WanderingAI.cs" />
     <Compile Include="Assets\Scripts\WaterMeshGenerator.cs" />
     <Compile Include="Assets\Scripts\WaterNoiseMaker.cs" />
   </ItemGroup>
