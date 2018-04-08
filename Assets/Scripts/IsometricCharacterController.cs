@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class IsometricCharacterController : MonoBehaviour {
 
-    public GameObject player;
     public GameObject controlling;
 
     Rigidbody rb;
@@ -23,6 +22,10 @@ public class IsometricCharacterController : MonoBehaviour {
     Vector3 origin;
 
     void Start() {
+        if (controlling == null) {
+            controlling = gameObject;
+        }
+
         rb = controlling.GetComponent<Rigidbody>();
 
         isoForward = Camera.main.transform.forward;
@@ -34,16 +37,16 @@ public class IsometricCharacterController : MonoBehaviour {
     }
 
     void Update() {
-        if (controlling == player) {
+        if (controlling == gameObject) {
             MovePlayer(moveSpeed);
         }
         else {
             Telepathy(moveSpeed);
             timeCounter += Time.deltaTime;
 
-            if (Vector3.Distance(controlling.transform.position, player.transform.position) > controlDistance) {
+            if (Vector3.Distance(controlling.transform.position, transform.position) > controlDistance) {
                 timeCounter = 0;
-                controlling = player;
+                controlling = gameObject;
                 rb = controlling.GetComponent<Rigidbody>();
                 origin = Vector3.zero;
             }
@@ -53,7 +56,7 @@ public class IsometricCharacterController : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Controllable"))) {
-                if (Vector3.Distance(hit.transform.position, player.transform.position) <= controlDistance) {
+                if (Vector3.Distance(hit.transform.position, transform.position) <= controlDistance) {
                     timeCounter = 0;
                     controlling = hit.collider.gameObject;
                     rb = controlling.GetComponent<Rigidbody>();
@@ -64,14 +67,14 @@ public class IsometricCharacterController : MonoBehaviour {
         
         if (Input.GetMouseButtonDown(1)) {
             timeCounter = 0;
-            controlling = player;
+            controlling = gameObject;
             rb = controlling.GetComponent<Rigidbody>();
             origin = Vector3.zero;
         }
     }
 
     void Telepathy(float speed) {
-        Vector3 moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        Vector3 moveVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveVector = Quaternion.FromToRotation(Vector3.forward, isoForward) * moveVector * speed;
 
         rb.velocity = moveVector;
@@ -81,13 +84,13 @@ public class IsometricCharacterController : MonoBehaviour {
         pos.y = Mathf.Lerp(pos.y, origin.y + difference, 0.125f);
         controlling.transform.position = pos;
 
-        pos.y = player.transform.position.y;
+        pos.y = transform.position.y;
 
-        player.transform.LookAt(pos);
+        transform.LookAt(pos);
     }
 
     void MovePlayer(float speed) {
-        Vector3 moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        Vector3 moveVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveVector = Quaternion.FromToRotation(Vector3.forward, isoForward) * moveVector * speed;
 
         Vector3 direction = moveVector.normalized;
