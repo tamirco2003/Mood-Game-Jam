@@ -12,9 +12,13 @@ public class WanderingAI : MonoBehaviour {
     private NavMeshAgent agent;
     private float timer;
 
+    Animator animator;
+
     void OnEnable() {
         agent = GetComponent<NavMeshAgent>();
         timer = wanderTimer;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update() {
@@ -25,6 +29,9 @@ public class WanderingAI : MonoBehaviour {
             agent.SetDestination(newPos);
             timer = 0;
         }
+
+        float speedPercent = agent.velocity.magnitude / agent.speed;
+        animator.SetFloat("SpeedPercent", speedPercent, 0.125f, Time.deltaTime);
     }
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {
