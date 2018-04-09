@@ -5,19 +5,19 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
     Vector3 startPos;
-    public IsometricCharacterController charControl;
+    public IsometricCharacterController gameMaster;
     Transform following;
     Transform player;
 
 	void Start () {
         startPos = transform.position;
-        following = charControl.controlling.transform;
-        player = charControl.transform;
+        following = gameMaster.controlling.transform;
+        player = gameMaster.player.transform;
 	}
 
     void Update() {
-        if (following != charControl.controlling.transform) {
-            following = charControl.controlling.transform;
+        if (following != gameMaster.controlling.transform) {
+            following = gameMaster.controlling.transform;
         }
     }
 
