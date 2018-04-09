@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour {
 
     public AudioManager audioManager;
-    int stepCounter;
     bool playingStep;
 
     IsometricCharacterController charControl;
@@ -16,7 +15,6 @@ public class PlayerAnimator : MonoBehaviour {
         charControl = GetComponent<IsometricCharacterController>();
         animator = charControl.GetComponentInChildren<Animator>();
         rb = charControl.GetComponentInChildren<Rigidbody>();
-        stepCounter = 0;
         playingStep = false;
 	}
 	

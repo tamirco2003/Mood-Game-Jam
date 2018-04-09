@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class WanderingAI : MonoBehaviour {
 
+    public AudioManager audioManager;
+    bool playingStep;
+
     public float wanderRadius;
     public float wanderTimer;
 
@@ -19,6 +22,8 @@ public class WanderingAI : MonoBehaviour {
         timer = wanderTimer;
 
         animator = GetComponentInChildren<Animator>();
+
+        playingStep = false;
     }
 
     void Update() {
@@ -32,6 +37,10 @@ public class WanderingAI : MonoBehaviour {
 
         float speedPercent = agent.velocity.magnitude / agent.speed;
         animator.SetFloat("SpeedPercent", speedPercent, 0.125f, Time.deltaTime);
+
+        if (speedPercent > 0.1f && !playingStep) {
+            StartCoroutine(playStepSound());
+        }
     }
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {
@@ -45,4 +54,17 @@ public class WanderingAI : MonoBehaviour {
 
         return navHit.position;
     }
+
+    IEnumerator playStepSound() {
+        playingStep = true;
+        string clip = "";
+        if (Random.Range(1, 3) == 1)
+            clip = "Step1";
+        else
+            clip = "Step2";
+        audioManager.Play(clip);
+        yield return new WaitForSeconds(audioManager.FindSound(clip).clip.length * 2);
+        playingStep = false;
+    }
+
 }
