@@ -55,12 +55,12 @@ MonoBehaviour:
   sounds:
   - name: Step1
     clip: {fileID: 8300000, guid: bb88a1e17de9f374eaa8a8faef7622fc, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     source: {fileID: 0}
   - name: Step2
     clip: {fileID: 8300000, guid: 768ef7ff2ab740e468894df993debe99, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     source: {fileID: 0}
 --- !u!114 &114206727432875996
