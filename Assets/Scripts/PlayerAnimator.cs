@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour {
 
+    public AudioManager audioManager;
+    int stepCounter;
+    bool playingStep;
+
     IsometricCharacterController charControl;
     Animator animator;
     Rigidbody rb;
@@ -12,10 +16,29 @@ public class PlayerAnimator : MonoBehaviour {
         charControl = GetComponent<IsometricCharacterController>();
         animator = charControl.GetComponentInChildren<Animator>();
         rb = charControl.GetComponentInChildren<Rigidbody>();
+        stepCounter = 0;
+        playingStep = false;
 	}
 	
 	void Update () {
         float speedPercent = rb.velocity.magnitude / charControl.moveSpeed;
         animator.SetFloat("SpeedPercent", speedPercent, 0.125f, Time.deltaTime);
-	}
+
+
+        if (speedPercent > 0.1f && !playingStep) {
+            StartCoroutine(playStepSound());
+        }
+    }
+
+    IEnumerator playStepSound() {
+        playingStep = true;
+        string clip = "";
+        if (Random.Range(1, 3) == 1)
+            clip = "Step1";
+        else
+            clip = "Step2";
+        audioManager.Play(clip);
+        yield return new WaitForSeconds(audioManager.FindSound(clip).clip.length);
+        playingStep = false;
+    }
 }

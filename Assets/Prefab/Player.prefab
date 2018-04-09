@@ -656,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26cd50433e56de4981d82165606527c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
 --- !u!136 &136390140263157908
 CapsuleCollider:
   m_ObjectHideFlags: 1
