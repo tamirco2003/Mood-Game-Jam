@@ -35,7 +35,7 @@ public class PlayerAnimator : MonoBehaviour {
             clip = "Step1";
         else
             clip = "Step2";
-        audioManager.Play(clip);
+        audioManager.PlayOnce(clip);
         yield return new WaitForSeconds(audioManager.FindSound(clip).clip.length);
         playingStep = false;
     }
