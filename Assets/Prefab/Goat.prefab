@@ -511,7 +511,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871712450390232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 19.953482, y: 0, z: 5.387345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4089132992962598}
@@ -649,7 +649,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537610544658084}
-  m_LocalRotation: {x: -0.72212964, y: -0.22306545, z: 0.29132345, w: 0.5864309}
+  m_LocalRotation: {x: -0.7221297, y: -0.22306538, z: 0.29132348, w: 0.58643097}
   m_LocalPosition: {x: -0.18098404, y: -0.09825345, z: 0.42235544}
   m_LocalScale: {x: 0.99999964, y: 1, z: 0.9999998}
   m_Children:
@@ -767,6 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe72d11e2b4d684dab9e7dad444f331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   wanderRadius: 10
   wanderTimer: 5
 --- !u!137 &137209966184981086
@@ -783,7 +784,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b6e67444a42ef514196a142b14d6a9d5, type: 3}
+  - {fileID: 2100000, guid: 95a5cbf84a5020f41a9c6a73e8ff816e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
