@@ -6,9 +6,8 @@ public class CameraFollow : MonoBehaviour {
 
     Vector3 startPos;
     public IsometricCharacterController charControl;
-    
-    public Transform following;
-    public Transform player;
+    Transform following;
+    Transform player;
 
 	void Start () {
         startPos = transform.position;
@@ -19,9 +18,6 @@ public class CameraFollow : MonoBehaviour {
     void Update() {
         if (following != charControl.controlling.transform) {
             following = charControl.controlling.transform;
-        }
-        if (player != charControl.transform) {
-            player = charControl.transform;
         }
     }
 
