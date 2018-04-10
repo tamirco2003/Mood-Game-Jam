@@ -30,7 +30,6 @@ sysinfo.txt
 *.unitypackage
 .vs/Mood Game Jam/v14/.suo
 *.wav
-*.cs
 Library/metadata/0a/0a8876ccea5cebf428682cc5f38d6858
 Library/metadata/b2/b26cd50433e56de4981d82165606527c
 *.info
