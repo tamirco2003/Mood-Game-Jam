@@ -1,9 +1,9 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -27,4 +27,13 @@ sysinfo.txt
 
 # Builds
 *.apk
+<<<<<<< HEAD
 *.unitypackage
+=======
+*.unitypackage
+.vs/Mood Game Jam/v14/.suo
+*.wav
+Library/metadata/0a/0a8876ccea5cebf428682cc5f38d6858
+Library/metadata/b2/b26cd50433e56de4981d82165606527c
+*.info
+>>>>>>> origin
