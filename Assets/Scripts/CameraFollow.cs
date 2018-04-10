@@ -19,6 +19,9 @@ public class CameraFollow : MonoBehaviour {
         if (following != charControl.controlling.transform) {
             following = charControl.controlling.transform;
         }
+        if (player != charControl.transform) {
+            player = charControl.transform;
+        }
     }
 
     void FixedUpdate () {

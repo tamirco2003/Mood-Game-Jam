@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Test
+  - Alpha
+  - Beta
+  - Gamma
+  - Delta
+  - Theta
+  - Mu
+  - Pi
+  - Lambda
   layers:
   - Default
   - TransparentFX
