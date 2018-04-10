@@ -1,8 +1,1 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Scene 3.unity
-=======
-- path: Assets/Scenes/Scene 1.unity
->>>>>>> L3th4l
-  isLoaded: 1
-  isActive: 1
+sceneSetups: []
