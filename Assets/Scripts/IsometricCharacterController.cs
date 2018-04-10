@@ -21,10 +21,10 @@ public class IsometricCharacterController : MonoBehaviour {
 
     Vector3 origin;
 
-    void Start() {
-        if (controlling == null) {
+    void Start()
+    {
+        if(controlling == null)
             controlling = gameObject;
-        }
 
         rb = controlling.GetComponent<Rigidbody>();
 

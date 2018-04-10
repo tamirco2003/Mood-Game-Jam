@@ -9,9 +9,11 @@ public class CameraFollow : MonoBehaviour {
     Transform following;
     Transform player;
 
-	void Start () {
+	void Start () 
+    {
         startPos = transform.position;
-        following = charControl.controlling.transform;
+        if (charControl != null)
+            following = charControl.controlling.transform;
         player = charControl.transform;
 	}
 
