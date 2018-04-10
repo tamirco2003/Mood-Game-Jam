@@ -55,12 +55,17 @@ public class IsometricCharacterController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Controllable"))) {
-                if (Vector3.Distance(hit.transform.position, transform.position) <= controlDistance) {
-                    timeCounter = 0;
-                    controlling = hit.collider.gameObject;
-                    rb = controlling.GetComponent<Rigidbody>();
-                    origin = controlling.transform.position;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Controllable")) {
+                    if (Vector3.Distance(hit.transform.position, transform.position) <= controlDistance) {
+                        timeCounter = 0;
+                        controlling = hit.collider.gameObject;
+                        rb = controlling.GetComponent<Rigidbody>();
+                        origin = controlling.transform.position;
+                    }
+                }
+                else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Rotatable")) {
+                    hit.transform.GetComponentInParent<RotatingPuzzle>().Rotate(hit.transform);
                 }
             }
         }

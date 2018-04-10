@@ -57,11 +57,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bb88a1e17de9f374eaa8a8faef7622fc, type: 3}
     volume: 0.1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: Step2
     clip: {fileID: 8300000, guid: 768ef7ff2ab740e468894df993debe99, type: 3}
     volume: 0.1
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SceneMusic
+    clip: {fileID: 8300000, guid: 1b6ff3933ad0d2242a73694418cd345e, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!114 &114206727432875996
 MonoBehaviour:
