@@ -55,7 +55,7 @@ public class IsometricCharacterController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Controllable"))) {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Controllable")) && hit.transform.gameObject != controlling) {
                 if (Vector3.Distance(hit.transform.position, transform.position) <= controlDistance) {
                     timeCounter = 0;
                     controlling = hit.collider.gameObject;
