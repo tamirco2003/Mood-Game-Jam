@@ -33,10 +33,10 @@ MonoBehaviour:
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 2
+        preset: 4
       taaSettings:
-        jitterSpread: 0.75
-        sharpen: 0.3
+        jitterSpread: 0.716
+        sharpen: 1.22
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
@@ -97,7 +97,7 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
         intensity: 0.5
@@ -106,8 +106,8 @@ MonoBehaviour:
         radius: 4
         antiFlicker: 0
       lensDirt:
-        texture: {fileID: 0}
-        intensity: 3
+        texture: {fileID: 2800000, guid: a2960ffde020f27409e070d92fb2e00b, type: 3}
+        intensity: 2.72
   colorGrading:
     m_Enabled: 1
     m_Settings:
@@ -120,9 +120,9 @@ MonoBehaviour:
         neutralWhiteLevel: 5.3
         neutralWhiteClip: 10
       basic:
-        postExposure: 0
-        temperature: 0
-        tint: 0
+        postExposure: 0.55
+        temperature: -18
+        tint: -3
         hueShift: 0
         saturation: 1
         contrast: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.22
+      intensity: 0.113
   grain:
     m_Enabled: 1
     m_Settings:
