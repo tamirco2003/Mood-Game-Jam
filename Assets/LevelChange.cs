@@ -8,12 +8,15 @@ public class LevelChange : MonoBehaviour
     public int index;
     public bool quit = false;
 
+    void Update()
+    {
+        if (quit && Time.time >= 5)
+            Application.Quit();
+    }
     void OnTriggerEnter( Collider kys)
     {
         if (kys.CompareTag("LevC"))
         {
-            if (quit)
-                Application.Quit();
             SceneManager.LoadScene(index);
         }
     }

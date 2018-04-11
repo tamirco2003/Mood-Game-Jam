@@ -51,8 +51,8 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 9
     m_Resolution: 2
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 853a5ded5539b48259eba4f2c48c8596,
+  m_LightingDataAsset: {fileID: 112000034, guid: e6343dcfe34894988ad86d34e5593680,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -10342,6 +10342,54 @@ Transform:
   m_PrefabParentObject: {fileID: 4773534552585282, guid: 69307e8af377c8144ac9eb6c9c7d7071,
     type: 2}
   m_PrefabInternal: {fileID: 765655512}
+--- !u!1001 &767939016
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661529662791716, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d754d3e662ce16a458b5ecc92244cbd8, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &767939017 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114190335503178650, guid: d754d3e662ce16a458b5ecc92244cbd8,
+    type: 2}
+  m_PrefabInternal: {fileID: 767939016}
+  m_Script: {fileID: 11500000, guid: cfd1870f1439c784db74dbe097a10280, type: 3}
 --- !u!1001 &783683786
 Prefab:
   m_ObjectHideFlags: 0
@@ -14188,7 +14236,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1117929212
 Prefab:
@@ -15146,7 +15194,12 @@ Prefab:
         type: 2}
       propertyPath: controlling
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1756057953}
+    - target: {fileID: 114569828560331808, guid: c5a78c483536d45a383c5df3d6ba3751,
+        type: 2}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 767939017}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5a78c483536d45a383c5df3d6ba3751, type: 2}
   m_IsPrefabParent: 0
@@ -21588,7 +21641,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4773534552585282, guid: 69307e8af377c8144ac9eb6c9c7d7071,
     type: 2}
   m_PrefabInternal: {fileID: 1754860129}
-<<<<<<< HEAD
 --- !u!1 &1756057953
 GameObject:
   m_ObjectHideFlags: 0
@@ -21633,8 +21685,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
-=======
->>>>>>> a942634197074dc4feff19b2ba98b7b0d3f9ec43
 --- !u!1001 &1764180981
 Prefab:
   m_ObjectHideFlags: 0
